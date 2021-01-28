@@ -21,8 +21,13 @@ public class InsertionSort {
 
 		int[] A = { 5, 2, 4, 6, 1, 3 };
 
+		System.out.print("Unsorted List : ");
+		for (int item : A)
+			System.out.print(item + " ");
+
 		int sortedArray[] = new InsertionSort().sort(A);
 
+		System.out.print("\nSorted List   : ");
 		for (int item : sortedArray)
 			System.out.print(item + " ");
 	}
@@ -52,6 +57,7 @@ public class InsertionSort {
 				j--;
 			}
 
+			// since A[j] is smaller than key, we should update key on A[j+1]
 			A[j + 1] = key;
 		}
 
