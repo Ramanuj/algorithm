@@ -5,6 +5,8 @@ package org.ramanuj.algorithm.insertionsort;
 
 import java.util.logging.Logger;
 
+import org.ramanuj.algorithm.util.AppUtil;
+
 /**
  * @author Ramanuj Srivastava
  *
@@ -19,17 +21,16 @@ public class InsertionSort {
 	public static void main(String[] args) {
 		logger.info("Insertion sort");
 
-		int[] A = { 5, 2, 4, 6, 1, 3 };
+		int[] inputArray = { 5, 2, 4, 6, 1, 3 };
 
 		System.out.print("Unsorted List : ");
-		for (int item : A)
-			System.out.print(item + " ");
+		AppUtil.printArray(inputArray);
 
-		int sortedArray[] = new InsertionSort().sort(A);
+		int sortedArray[] = new InsertionSort().sort(inputArray);
 
 		System.out.print("\nSorted List   : ");
-		for (int item : sortedArray)
-			System.out.print(item + " ");
+		AppUtil.printArray(sortedArray);
+
 	}
 
 	/**
