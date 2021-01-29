@@ -8,6 +8,8 @@ import java.util.logging.Logger;
 import org.ramanuj.algorithm.util.AppUtil;
 
 /**
+ * This class sorts a given array using insertion sort and displays the result
+ * 
  * @author Ramanuj Srivastava
  *
  */
@@ -16,6 +18,8 @@ public class InsertionSort {
 	private final static Logger logger = Logger.getLogger(InsertionSort.class.getName());
 
 	/**
+	 * Start the execution of the program
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -26,10 +30,14 @@ public class InsertionSort {
 		System.out.print("Unsorted List : ");
 		AppUtil.printArray(inputArray);
 
-		int sortedArray[] = new InsertionSort().sort(inputArray);
+		int sortedArrayAsc[] = new InsertionSort().sort(inputArray, true);
 
-		System.out.print("\nSorted List   : ");
-		AppUtil.printArray(sortedArray);
+		System.out.print("\nSorted List Ascending Order   : ");
+		AppUtil.printArray(sortedArrayAsc);
+
+		int sortedArrayDesc[] = new InsertionSort().sort(inputArray, false);
+		System.out.print("\nSorted List Descending Order  : ");
+		AppUtil.printArray(sortedArrayDesc);
 
 	}
 
@@ -39,7 +47,7 @@ public class InsertionSort {
 	 * @param A
 	 * @return int[]
 	 */
-	public int[] sort(int[] A) {
+	public int[] sort(int[] A, boolean ascending) {
 
 		/**
 		 * Starting with the second element of the array as key
@@ -53,7 +61,7 @@ public class InsertionSort {
 			// iterate all elements on the left of the key [0..i-1]
 			// break if you find an element on the left that is smaller than key. it means
 			// that is place where you need to insert the key
-			while (j >= 0 && A[j] > key) {
+			while (j >= 0 && (ascending == true ? A[j] > key : A[j] < key)) {
 				A[j + 1] = A[j];
 				j--;
 			}
